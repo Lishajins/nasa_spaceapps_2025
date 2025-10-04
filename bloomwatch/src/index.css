@@ -1,0 +1,57 @@
+:root{
+  --bg:#071019;
+  --panel:#07241a;
+  --accent:#00b88a;
+  --muted:#9bb0ac;
+  --card:#0b2a24;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+body,html,#root{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:linear-gradient(180deg,var(--bg),#021118);color:#e7f7f2}
+.app-root{min-height:100vh;display:flex;flex-direction:column}
+.header{display:flex;align-items:center;gap:16px;padding:18px 28px;background:transparent}
+.brand{font-weight:700;color:var(--accent);font-size:24px}
+.header-controls{margin-left:auto;display:flex;align-items:center;gap:12px}
+.toggle{display:flex;background:var(--card);border-radius:999px;padding:6px}
+.toggle button{background:transparent;border:0;color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer}
+.toggle button.active{background:linear-gradient(90deg,var(--accent),#008060);color:white}
+.search{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);padding:8px;border-radius:10px;width:480px}
+.search input{background:transparent;border:0;outline:none;color:inherit;width:100%}
+.date-picker{background:var(--card);padding:8px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+/* main content */
+.main-content{flex:1;display:flex;flex-direction:column;gap:20px;padding:18px}
+
+/* globe area & card area */
+.layout{display:grid;grid-template-columns:1fr 420px;gap:18px}
+.globe-pane{background:var(--glass);border-radius:16px;padding:18px;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.side-pane{background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18));border-radius:16px;padding:18px;min-height:520px;color:var(--muted)}
+.timeline-btn{margin:12px auto;background:var(--accent);border-radius:28px;color:white;padding:12px 26px;cursor:pointer;border:0}
+.card{background:var(--panel);padding:18px;border-radius:12px;margin-top:12px}
+
+/* plant card */
+.plant-title{font-size:34px;color:white}
+.plant-sub{color:var(--accent);margin-top:4px}
+.gallery{display:flex;gap:12px;margin-top:14px}
+.gallery img{width:240px;height:140px;object-fit:cover;border-radius:12px}
+
+/* small widgets */
+.hotspots{display:flex;gap:12px;margin-top:18px}
+.hotspot{background:rgba(0,0,0,0.2);padding:10px;border-radius:10px;min-width:110px}
+
+/* timeline panel */
+.timeline-panel{position:fixed;left:20px;top:120px;background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);z-index:50;max-width:420px}
+.timeline-mode{display:flex;gap:8px;margin-top:12px}
+.timeline-mode button{padding:8px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer}
+.timeline-mode button.active{background:var(--accent);color:white}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* responsive */
+@media (max-width: 1000px){
+  .layout{grid-template-columns:1fr}
+  .side-pane{order:2}
+}
