@@ -2,8 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-export default function LocationMap({ location, hotspots }) {
-  // Example location: { lat: 20.5937, lng: 78.9629 }  (India)
+export default function LocationMap({ location, hotspots, ndvi }) {
   const position = location || { lat: 20.5937, lng: 78.9629 };
 
   return (
@@ -27,6 +26,12 @@ export default function LocationMap({ location, hotspots }) {
               <Popup>
                 Bloom Intensity: {spot.intensity}%<br />
                 Plant: {spot.plant}
+                {ndvi !== null && (
+                  <>
+                    <br />
+                    NDVI: {ndvi}
+                  </>
+                )}
               </Popup>
             </CircleMarker>
           ))}
